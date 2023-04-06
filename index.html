@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="mainDiv">
+      <h1>Counter</h1>
+      <div class="countValueMain">
+          <div class="negative ">-1</div>
+          <div class="countValue">
+              0</div>
+              <div class="positive ">+1
+              </div>
+        </div>
+      <div class="buttons">
+        <button class="decrement" onclick="decremaent()">DECREASE</button>
+        <button class="reset" onclick="reload()">RESET</button>
+        <button class="increment" onclick="increament()">INCREASE</button>
+      </div>
+    </div>
+
+    <script>
+      let increment = document.querySelector(".increment");
+      let reset = document.querySelector(".reset");
+      let decrement = document.querySelector(".decrement");
+      let countValue = document.querySelector(".countValue");
+      let positive = document.querySelector(".positive");
+      let negative = document.querySelector(".negative");
+      
+      let a = 0;
+      function increament() {
+        negative.classList.remove('hidden')
+        countValue.textContent = ++a;
+        positive.classList.add('hidden')
+        positive.addEventListener('transitionend', () => {
+            
+            positive.classList.remove('hidden')
+         
+        
+    })
+       
+        
+        if(countValue.textContent >0 ){
+        countValue.style.color = "rgb(35, 158, 35)";
+    }
+      }
+
+      function decremaent() {
+        positive.classList.remove('hidden')
+        countValue.textContent = --a;
+        negative.classList.add('hidden')
+        negative.addEventListener('transitionend', () => {
+            
+            negative.classList.remove('hidden')
+            
+        
+    })
+        if(countValue.textContent <0 ){
+        countValue.style.color = "red";
+        }
+      }
+
+      function reload() {
+        a=0;
+        countValue.textContent = '0';
+        countValue.style.color = "rgb(15, 29, 45)";
+      }
+    </script>
+  </body>
+</html>
